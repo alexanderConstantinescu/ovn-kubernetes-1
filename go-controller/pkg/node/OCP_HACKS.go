@@ -65,6 +65,7 @@ func initSharedGatewayNoBridge(nodeName string, subnets []*net.IPNet, gwNextHops
 	err = util.SetL3GatewayConfig(nodeAnnotator, &util.L3GatewayConfig{
 		ChassisID:      chassisID,
 		Mode:           config.GatewayModeLocal,
+		InterfaceID:    "br-local" + "_" + n.name,
 		IPAddresses:    ips,
 		MACAddress:     util.IPAddrToHWAddr(ips[0].IP),
 		NextHops:       gwNextHops,
